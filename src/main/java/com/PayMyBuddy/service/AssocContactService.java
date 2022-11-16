@@ -1,5 +1,7 @@
 package com.PayMyBuddy.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +15,13 @@ public class AssocContactService {
 	private AssocContactRepository assocContactRepository;
 	
 	//Get all contacts relations
-	public Iterable<AssocContact> getAllContacts() {
+	public List<AssocContact> getAllContacts() {
 		return assocContactRepository.findAll();	
 	}
 	
 	//Get all contacts by User
-	public Iterable<AssocContact> getUserContacts(String userMail) {
-		return assocContactRepository.findByuserMail(userMail);	
+	public List<AssocContact> getUserContacts(String userMail) {
+		return assocContactRepository.findByUserMail(userMail);	
 	}
 	
 	//Add new Contact
@@ -29,5 +31,10 @@ public class AssocContactService {
 			relation.setContactMail(contactMail);
 			
 			return assocContactRepository.save(relation);	
+		}
+		
+	//Delete new Contact
+		public void deleteContact(String userMail, String contactMail) {
+			assocContactRepository.deleteByUserMailAndContactMail(userMail, contactMail);	
 		}
 }

@@ -83,5 +83,7 @@ insert into `assoc_contacts` (`email_user`,`email_contact`) values ("kdupont@mai
 insert into `assoc_contacts` (`email_user`,`email_contact`) values ("kdupont@mail.com","ysalim@mail.com");
 insert into `assoc_contacts` (`email_user`,`email_contact`) values ("kdupont@mail.com","sshoto@mail.com");
 
+insert into `transactions` (`account_sender`,`account_receiver`,`amount`,`date`,`description`,`commission_Rate`)values (6, 5, 5,"2022-10-10 22:00:00", "virement 5e",0.5);
 insert into `transactions` (`account_sender`,`account_receiver`,`amount`,`date`,`description`,`commission_Rate`)values (6, 9, 20,"2022-10-11 14:00:00", "virement 20e",0.5);
-
+insert into `transactions` (`account_sender`,`account_receiver`,`amount`,`date`,`description`,`commission_Rate`)values (7, 10, 40,"2022-10-11 14:00:00", "virement 40e",0.5);
+insert into `transactions` (`account_sender`,`account_receiver`,`amount`,`date`,`description`,`commission_Rate`)values (9, 5, 5,"2022-10-11 14:00:00", "virement 5e",0.5);

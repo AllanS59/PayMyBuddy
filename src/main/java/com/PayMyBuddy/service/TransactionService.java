@@ -3,6 +3,7 @@ package com.PayMyBuddy.service;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,35 +19,42 @@ public class TransactionService {
 	private TransactionRepository transactionRepository;
 	
 	// Get all transactions
-	public Iterable<Transaction> getTransactions() {
+	public List<Transaction> getTransactions() {
 		return transactionRepository.findAll();	
 	}
 	
 	// Get all transaction for one Sender
-	public Iterable<Transaction> getTransactionsBySender(int senderAccount){
+	public List<Transaction> getTransactionsBySender(int senderAccount){
 		return transactionRepository.findBySenderAccount(senderAccount);
 	}
 	
 	// Get all transaction for one Receiver
-	public Iterable<Transaction> getTransactionsByReceiver(int receiverAccount){
+	public List<Transaction> getTransactionsByReceiver(int receiverAccount){
 		return transactionRepository.findByReceiverAccount(receiverAccount);
 	}
 	
 	// Get all transaction for one Sender
-		public Iterable<Transaction> getTransactionsBySenderAndMinDate(int senderAccount, Date minDate){
+		public List<Transaction> getTransactionsBySenderAndMinDate(int senderAccount, Date minDate){
 			return transactionRepository.findBySenderAccountAndDateAfter(senderAccount, minDate);
 		}
 		
 		// Get all transaction for one Receiver
-		public Iterable<Transaction> getTransactionsByReceiverAndMinDate(int receiverAccount, Date minDate){
+		public List<Transaction> getTransactionsByReceiverAndMinDate(int receiverAccount, Date minDate){
 			return transactionRepository.findByReceiverAccountAndDateAfter(receiverAccount, minDate);
 		}
+		
+		
 	
 	
 	
 	// Add a new transaction to database
 	public Transaction addTransaction(Transaction transaction) {
 		return transactionRepository.save(transaction);	
+	}
+	
+	// Delete a transaction 
+	public void deleteTransactionById(int id){
+		transactionRepository.deleteById(id);
 	}
 	
 	
@@ -57,7 +65,7 @@ public class TransactionService {
 			transaction.setSenderAccount(senderAccount);
 			transaction.setReceiverAccount(receiverAccount);
 			transaction.setAmount(amount);
-			transaction.setDate(new Date(0));
+			transaction.setDate(new Date());
 			transaction.setDescription(description);
 			transaction.setCommissionRate(DBConstants.FeesRatePerTransaction);
 				
