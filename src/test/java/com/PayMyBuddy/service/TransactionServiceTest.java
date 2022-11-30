@@ -9,7 +9,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -17,11 +20,20 @@ import com.PayMyBuddy.constants.DBConstants;
 import com.PayMyBuddy.model.Transaction;
 import com.PayMyBuddy.model.User;
 
+@TestInstance(Lifecycle.PER_CLASS)
 @SpringBootTest
 public class TransactionServiceTest {
 
 	@Autowired
 	private TransactionService transactionService;
+	
+	
+	@AfterAll
+	public void cleanAfterTests() {
+		transactionService.deleteTransactionById(6);
+		transactionService.deleteTransactionById(5);
+	}
+	
 	
 	@Test
 	public void getTransactionsTest() {

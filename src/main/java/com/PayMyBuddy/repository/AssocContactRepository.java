@@ -18,7 +18,7 @@ public interface AssocContactRepository extends JpaRepository<AssocContact, Asso
 	public List<AssocContact> findByUserMail(String userMail);
 	
 	@Modifying
-	@Query(value = "DELETE * FROM assoc_contacts WHERE (email_user = :userMail) AND (email_contact = :contactMail)", nativeQuery = true)
+	@Query(value = "DELETE FROM assoc_contacts WHERE (email_user = :userMail) AND (email_contact = :contactMail)", nativeQuery = true)
 	public void deleteByUserMailAndContactMail(@Param("userMail") String userMail, @Param("contactMail") String contactMail);
 	
 }

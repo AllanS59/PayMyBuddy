@@ -2,6 +2,8 @@ package com.PayMyBuddy.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,7 @@ public class AssocContactService {
 		}
 		
 	//Delete new Contact
+		@Transactional
 		public void deleteContact(String userMail, String contactMail) {
 			assocContactRepository.deleteByUserMailAndContactMail(userMail, contactMail);	
 		}

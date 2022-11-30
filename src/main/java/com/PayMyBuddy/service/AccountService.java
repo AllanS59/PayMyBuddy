@@ -77,6 +77,7 @@ public class AccountService {
 	}
 	
 	//Delete account by Id
+	@Transactional
 	public void  deleteAccount(int id) {
 		accountRepository.deleteById(id);	
 	}
@@ -142,8 +143,8 @@ public class AccountService {
 		}
 		
 		//Update Balances of Sender and Receiver accounts
-		updateAccountCheckpoint (senderAccount);
-		updateAccountCheckpoint (receiverAccount);
+				updateAccountCheckpoint (senderAccount);
+				updateAccountCheckpoint (receiverAccount);
 	}
 	
 	

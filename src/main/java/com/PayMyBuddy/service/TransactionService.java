@@ -5,6 +5,8 @@ package com.PayMyBuddy.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,12 +55,14 @@ public class TransactionService {
 	}
 	
 	// Delete a transaction 
+	@Transactional
 	public void deleteTransactionById(int id){
 		transactionRepository.deleteById(id);
 	}
 	
 	
 	// Send money to a contact
+	@Transactional
 	public Transaction newTransactionBetweenUsers (int senderAccount, int receiverAccount, float amount, String description) {
 			Transaction transaction = new Transaction();
 			

@@ -25,7 +25,7 @@ public class AssocContactServiceTest {
 
 	@AfterAll
 	public void cleanAfterTests() {
-		//assocContactService.deleteContact("ysalim@mail.com", "sshoto@mail.com");
+		assocContactService.deleteContact("ysalim@mail.com", "sshoto@mail.com");
 	}
 	
 	
@@ -57,15 +57,15 @@ public class AssocContactServiceTest {
 		assertEquals("sshoto@mail.com", contactsArray[0].getContactMail());
 	}
 	
-//	@Test
-//	public void deleteContactTest() {
-//
-//		assocContactService.addContact("sshoto@mail.com", "kdupont@mail.com");
-//		assocContactService.deleteContact("sshoto@mail.com", "kdupont@mail.com");
-//		
-//		List<AssocContact> assocContact = assocContactService.getUserContacts("sshoto@mail.com");
-//		assertEquals(false, assocContact.iterator().hasNext());
-//	}
+	@Test
+	public void deleteContactTest() {
+
+		assocContactService.addContact("sshoto@mail.com", "kdupont@mail.com");
+		assocContactService.deleteContact("sshoto@mail.com", "kdupont@mail.com");
+		
+		List<AssocContact> assocContact = assocContactService.getUserContacts("sshoto@mail.com");
+		assertEquals(false, assocContact.iterator().hasNext());
+	}
 
 }
 

@@ -22,8 +22,8 @@ CREATE TABLE `user` (
 CREATE TABLE `assoc_contacts` (
   `email_user` VARCHAR(100) NOT NULL,
   `email_contact` VARCHAR(100) NOT NULL,
-  FOREIGN KEY (`email_user`) REFERENCES  `user`(`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`email_contact`) REFERENCES  `user`(`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`email_user`) REFERENCES  `user`(`email`),
+  FOREIGN KEY (`email_contact`) REFERENCES  `user`(`email`),
   PRIMARY KEY(`email_user`, `email_contact`)
 ) ;
 
@@ -33,7 +33,7 @@ CREATE TABLE `account` (
   `balance_Checkpoint` FLOAT,
   `date_Checkpoint` DATETIME NOT NULL,
   `type_account` VARCHAR(10) NOT NULL,
-   FOREIGN KEY(`email_user`) REFERENCES `user`(`email`) ON DELETE CASCADE ON UPDATE CASCADE
+   FOREIGN KEY(`email_user`) REFERENCES `user`(`email`)
 ) ;
 
 CREATE TABLE `transactions` (
@@ -44,8 +44,8 @@ CREATE TABLE `transactions` (
   `date` DATETIME NOT NULL,
   `description` VARCHAR(150),
   `commission_Rate` FLOAT NOT NULL,
-   FOREIGN KEY(`account_sender`) REFERENCES `account`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-   FOREIGN KEY(`account_receiver`) REFERENCES `account`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+   FOREIGN KEY(`account_sender`) REFERENCES `account`(`id`),
+   FOREIGN KEY(`account_receiver`) REFERENCES `account`(`id`)
 ) ;
 
 

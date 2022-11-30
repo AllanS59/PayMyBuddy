@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +60,8 @@
                     <h2 >Send Money</h2>
                 </div>
                 <div class="col-4">
-                    <input href="addContact" class="btn btn-primary" type="button" value="Add Connection">
+                    <input class="btn btn-primary" type="button" value="Add Connection">
+
                 </div>
             </div>
 
@@ -96,11 +97,24 @@
                         <th scope="col">Description</th>
                         <th scope="col">Amount</th>
                     </tr>
-                    <tr th:each ="transaction : ${transactions}">
-                        <td th:utext="${transaction.senderAccount}">...</td>
-                        <td th:utext="${transaction.description}">...</td>
-                        <td th:utext="${transaction.amount}">...</td>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Hayley</th>
+                        <td>Restaurant bill share</td>
+                        <td>10€</td>
                     </tr>
+                    <tr>
+                        <th scope="row">Clara</th>
+                        <td>Trip Money</td>
+                        <td>25€</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Smith</th>
+                        <td>Movie tickets</td>
+                        <td>8€</td>
+                    </tr>
+                    </tbody>
                 </table>
             </section>
 
