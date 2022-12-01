@@ -22,12 +22,6 @@ public class UserServiceTest {
 	private UserService userService;
 	
 	
-	@AfterAll
-	public void cleanAfterTests() {
-		userService.deleteUserById("mdeschamps@mail.com");
-	}
-	
-	
 	@Test
 	public void getUsersTest() {
 		
@@ -63,6 +57,8 @@ public class UserServiceTest {
 		User[] usersArray = users.toArray(new User[0]);
 		
 		assertEquals("Marcel", usersArray[0].getFirstName());	
+		
+		userService.deleteUserById("mdeschamps@mail.com");
 	}
 	
 	

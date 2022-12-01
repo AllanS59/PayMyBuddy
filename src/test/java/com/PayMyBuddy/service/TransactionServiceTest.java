@@ -28,13 +28,6 @@ public class TransactionServiceTest {
 	private TransactionService transactionService;
 	
 	
-	@AfterAll
-	public void cleanAfterTests() {
-		transactionService.deleteTransactionById(6);
-		transactionService.deleteTransactionById(5);
-	}
-	
-	
 	@Test
 	public void getTransactionsTest() {
 		
@@ -97,6 +90,7 @@ public class TransactionServiceTest {
 		Date newDate = df.parse(dateString);
 		
 		Transaction newTransaction = new Transaction();
+		newTransaction.setId(5);
 		newTransaction.setSenderAccount(8);
 		newTransaction.setReceiverAccount(4);
 		newTransaction.setAmount(10);
@@ -109,6 +103,8 @@ public class TransactionServiceTest {
 		List<Transaction> transactions = transactionService.getTransactionsBySender(8);
 		Transaction[] transactionsArray = transactions.toArray(new Transaction[0]);
 		assertEquals(4, transactionsArray[0].getReceiverAccount());
+		
+		transactionService.deleteTransactionByIdGreaterThan(4);
 	}
 	
 	@Test
@@ -119,6 +115,8 @@ public class TransactionServiceTest {
 		List<Transaction> transactions = transactionService.getTransactionsBySender(4);
 		Transaction[] transactionsArray = transactions.toArray(new Transaction[0]);
 		assertEquals(8, transactionsArray[0].getReceiverAccount());
+		
+		transactionService.deleteTransactionByIdGreaterThan(4);
 	}
 	
 }

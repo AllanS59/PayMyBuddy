@@ -22,11 +22,6 @@ public class AssocContactServiceTest {
 
 	@Autowired
 	private AssocContactService assocContactService;
-
-	@AfterAll
-	public void cleanAfterTests() {
-		assocContactService.deleteContact("ysalim@mail.com", "sshoto@mail.com");
-	}
 	
 	
 	@Test
@@ -55,6 +50,8 @@ public class AssocContactServiceTest {
 		AssocContact[] contactsArray = assocContact.toArray(new AssocContact[0]);
 		assertEquals(1, contactsArray.length);
 		assertEquals("sshoto@mail.com", contactsArray[0].getContactMail());
+		
+		assocContactService.deleteContact("ysalim@mail.com", "sshoto@mail.com");
 	}
 	
 	@Test

@@ -18,4 +18,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 	public List<Transaction> findBySenderAccountAndDateAfter(int senderAccount, Date date);
 	
 	public List<Transaction> findByReceiverAccountAndDateAfter(int receiverAccount, Date date);
+	
+	public void deleteByIdGreaterThan(int id);
+	
 }

@@ -60,6 +60,12 @@ public class TransactionService {
 		transactionRepository.deleteById(id);
 	}
 	
+	// Delete a transaction greater than x
+		@Transactional
+		public void deleteTransactionByIdGreaterThan(int id){
+			transactionRepository.deleteByIdGreaterThan(id);
+		}
+	
 	
 	// Send money to a contact
 	@Transactional

@@ -92,9 +92,7 @@ public class AccountServiceTest {
 		newAccount.setDateCheckpoint(date);
 		accountService.addAccount(newAccount);
 
-		transactionService.deleteTransactionById(7); 
-		transactionService.deleteTransactionById(6);
-		transactionService.deleteTransactionById(5);
+		transactionService.deleteTransactionByIdGreaterThan(4);
 
 		accountService.deleteAccount(13);
 		accountService.deleteAccount(12); 	
