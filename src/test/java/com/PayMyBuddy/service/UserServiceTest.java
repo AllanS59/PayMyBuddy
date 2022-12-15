@@ -3,6 +3,7 @@ package com.PayMyBuddy.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -35,9 +36,8 @@ public class UserServiceTest {
 	@Test
 	public void getUserByEmailTest() {
 		
-		List<User> users = userService.getUserByEmail("sshoto@mail.com");
-		User[] usersArray = users.toArray(new User[0]);
-		assertEquals("Sakura", usersArray[0].getFirstName());
+		Optional<User> user = userService.getUserByEmail("sshoto@mail.com");
+		assertEquals("Sakura", user.get().getFirstName());
 		
 	}
 	
@@ -53,10 +53,8 @@ public class UserServiceTest {
 		newUser.setPhone("175-475-954");
 		userService.addUser(newUser);
 		
-		List<User> users = userService.getUserByEmail("mdeschamps@mail.com");
-		User[] usersArray = users.toArray(new User[0]);
-		
-		assertEquals("Marcel", usersArray[0].getFirstName());	
+		Optional<User> user = userService.getUserByEmail("mdeschamps@mail.com");
+		assertEquals("Marcel", user.get().getFirstName());	
 		
 		userService.deleteUserById("mdeschamps@mail.com");
 	}
@@ -76,9 +74,8 @@ public class UserServiceTest {
 		
 		userService.deleteUserById("jmoulin@mail.com");
 		
-		List<User> users = userService.getUserByEmail("jmoulin@mail.com");
-		
-		assertEquals(false, users.iterator().hasNext());	
+		Optional<User> user = userService.getUserByEmail("jmoulin@mail.com");
+		assertEquals(true, user.isEmpty());	
 	}
 }
 

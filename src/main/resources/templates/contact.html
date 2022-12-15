@@ -52,58 +52,39 @@
 
 
             <div class="p-3 mb-2 bg-secondary" style="height: 60px; vertical-align: middle;">
-                <p > <a href="home.html">Home</a>     /     <a href="home.html">Transfer</a></p>
+                <p > <a href="home.html">Home</a>     /     <a href="home.html">Contact</a></p>
 
             </div>
 
-            <div class="container px-2" style="margin-top: 100; vertical-align: middle">
-                <div class="row justify-content-between">
-                    <div class="col-2">
-                        <h2 >Send Money</h2>
+            <div class="container px-2" style="margin-top: 100; vertical-align: middle">   
+                <h2 >Add Contacts</h2>
+                
+            <form th:action="@{/contact}" th:object="${contactDTO}" method="POST"> 
+                <div class="row justify-content-center"  style="height: 100px;">
+                    <div class="col-4">
+                            <input type="text" th:field="*{contactMail}" />  
                     </div>
-                    <div class="col-2" >
-                        <input href="addContact" class="btn btn-primary" type="button" value="Add Connection" >
+                    <div class="col-4">
+                        <input class="btn btn-success" type="submit" value="Add connection" style="width: 180px; height: 36px">
                     </div>
                 </div>
-
-
-                <form th:action="@{/home}" th:object="${newTransactionDTO}" method="POST"> 
-                    <div class="row justify-content-md-center p-4 mb-2 bg-secondary text-white"  style="height: 100px;">  
-                            <div class="col">
-                                <select class="form-control" id="dropDownList" style="width: 200px ; height: 38px" th:field="*{connection}">
-                                    <option value="0">Select A Connection</option>
-                                    <option th:each="contactName : ${listContactsNames}" th:value="${contactName}" th:text="${contactName}"></option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <input type="number" id="amount" name="amount" 
-                                    min="1" max="100" style="width: 120px; height: 36px" th:field="*{amount}">
-                            </div>
-                            <div class="col">
-                                <input type="text" th:field="*{description}" placeholder="add a description (optional)" tyle="width: 500px ; height: 45px"/> 
-                            </div>
-                        <div class="col">
-                            <input class="btn btn-success" type="submit" value="Pay" style="width: 180px; height: 36px">
-                        </div>
-                    </div>
             </form>
 
-
                 <section>
-                    <h2 >My Transactions</h2>
+                    <h2 >My contacts</h2>
                     <div class="container text-center">
 
                         <table class="table table-striped" style="vertical-align: middle;">
                             <thead>
                             <tr style="background-color: #198754 ;height:70px; vertical-align: middle;">
-                                <th scope="col">Connections</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Amount</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">FirstName</th>
+                                <th scope="col">LastName</th>
                             </tr>
-                            <tr  style="height:70px;vertical-align: middle;" th:each ="transaction : ${transactions}">
-                                <td th:utext="${transaction.connection}">...</td>
-                                <td th:utext="${transaction.description}">...</td>
-                                <td th:utext="${transaction.amount}">...</td>
+                            <tr  style="height:70px;vertical-align: middle;" th:each ="contact : ${contacts}">
+                                <td th:utext="${contact.contactMail}">...</td>
+                                <td th:utext="${contact.contactFirstName}">...</td>
+                                <td th:utext="${contact.contactLastName}">...</td>
                             </tr>
                         </table>
                     </div>
