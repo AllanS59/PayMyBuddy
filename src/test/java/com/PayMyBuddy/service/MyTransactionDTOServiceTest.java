@@ -17,7 +17,7 @@ import com.PayMyBuddy.DTO.MyTransactionDTO;
 public class MyTransactionDTOServiceTest {
 
 	@Autowired
-	MyTransactionDTOService transactionDTOService;
+	private MyTransactionDTOService transactionDTOService;
 	
 	@Test
 	public void getTransactionsDTOTest() {

@@ -9,8 +9,8 @@
 
 ---
 ###Class Diagram
-![Class Diagram](diagrammes/Diagrammes Chap 6-Diagramme de classe.png)
+![Class Diagram](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes Chap 6-Diagramme de classe.png?raw=true)
 
 ---
 ###Relationship model
-![Relationship model](diagrammes/Diagrammes Chap 6-modele relationnel.png)
+![Relationship model](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes Chap 6-modele relationnel.png?raw=true)

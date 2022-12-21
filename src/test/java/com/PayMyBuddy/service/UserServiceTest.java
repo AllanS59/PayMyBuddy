@@ -75,7 +75,7 @@ public class UserServiceTest {
 		userService.deleteUserById("jmoulin@mail.com");
 		
 		Optional<User> user = userService.getUserByEmail("jmoulin@mail.com");
-		assertEquals(true, user.isEmpty());	
+		assertEquals(false, user.isPresent());	
 	}
 }
 
