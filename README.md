@@ -21,13 +21,13 @@
 
 ---
 ###Class Diagram
-![Class Diagram](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes Chap 6-Diagramme de classe.png?raw=true)
+![Class Diagram](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes_Chap_6-Diagramme_de_classe.png?raw=true)
 
 ---
 ###Relationship model
-![Relationship model](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes Chap 6-modele relationnel.png?raw=true)
+![Relationship model](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes_Chap_6-modele_relationnel.png?raw=true)
 
 ---
 ###Package Diagramm
-![Relationship model](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes Chap 6-Diagramme de package.png?raw=true)
+![Relationship model](https://github.com/AllanS59/PayMyBuddy/blob/master/diagrammes/Diagrammes_Chap_6-Diagramme_de_package.png?raw=true)
 
