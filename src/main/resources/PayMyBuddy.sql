@@ -38,7 +38,7 @@ CREATE TABLE `account` (
    FOREIGN KEY(`email_user`) REFERENCES `user`(`email`)
 ) ;
 
-CREATE TABLE `transactions` (
+CREATE TABLE `transaction` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `account_sender` INT NOT NULL,
   `account_receiver` INT NOT NULL,
